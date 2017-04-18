@@ -490,7 +490,10 @@ def classify_url():
     article["title"] = link.title
     article["text"] = link.text
 
-    return(classify_article(article))
+    result = classify_article(article)
+
+    
+    return render_template("result.html",result = result)
 
 @app.route('/mnca-classify-article-content',methods=['POST'])
 def classify_article_content():
