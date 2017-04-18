@@ -484,6 +484,7 @@ def classify_url():
     """Function that takes the url string of a news article and returns the
     classifciation """
     if request.method == 'POST':
+
         url = request.form.query
         link = newspaper.Article(url)
         link.download()
@@ -495,7 +496,7 @@ def classify_url():
 
         result = classify_article(article)
 
-        return render_template("result.html",result = result)
+    return render_template("result.html",result = result)
 
 @app.route('/mnca-classify-article-content',methods=['POST'])
 def classify_article_content():
