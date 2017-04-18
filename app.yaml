@@ -1,0 +1,22 @@
+runtime: python
+env: flex
+service: default
+entrypoint: python mnca.py
+
+runtime_config:
+  python_version: 3
+
+health_check:
+  enable_health_check: False
+
+resources:
+  cpu: 2
+  memory_gb: 10.0
+
+
+#[START env]
+env_variables:
+  DEBUG: True
+#[END env]
+
+
