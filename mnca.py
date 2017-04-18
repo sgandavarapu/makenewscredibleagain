@@ -477,7 +477,7 @@ def classify_article(article):
     return(jsonify(classification))
 
 
-@app.route('/mnca-classify-url',method='POST')
+@app.route('/mnca-classify-url',methods=['POST'])
 def classify_url():
     """Function that takes the url string of a news article and returns the
     classifciation """
@@ -492,7 +492,7 @@ def classify_url():
 
     return(classify_article(article))
 
-@app.route('/mnca-classify-article-content',method='POST')
+@app.route('/mnca-classify-article-content',methods=['POST'])
 def classify_article_content():
     """Function that takes the article as a json input with "title" and "text" as input keys and returns the classification"""
     
