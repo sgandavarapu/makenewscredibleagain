@@ -481,16 +481,18 @@ def classify_article(article):
 def classify_url():
     """Function that takes the url string of a news article and returns the
     classifciation """
-    url = request.args.get('url','')
-    link = newspaper.Article(url)
-    link.download()
-    link.parse()
+    if request.method == 'POST':
+        
+        url = request.form.query
+        link = newspaper.Article(url)
+        link.download()
+        link.parse()
 
-    article = {}
-    article["title"] = link.title
-    article["text"] = link.text
+        article = {}
+        article["title"] = link.title
+        article["text"] = link.text
 
-    result = classify_article(article)
+        result = classify_article(article)
 
     
     return render_template("result.html",result = result)
