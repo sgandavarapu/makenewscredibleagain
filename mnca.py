@@ -13,6 +13,7 @@ import newspaper
 import time
 import string
 import re
+from flask import Flask
 from collections import Counter
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.model_selection import KFold
