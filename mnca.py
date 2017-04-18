@@ -13,9 +13,10 @@ import newspaper
 import time
 import string
 import re
-from flask import Flask
+from flask import Flask, jsonify, request
 from collections import Counter
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+#from vaderSentiment import SentimentIntensityAnalyzer
 from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -23,6 +24,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.externals import joblib
+from oauth2client.client import GoogleCredentials
+from google.cloud import storage
 
 app = Flask(__name__)
 app.config['PORT'] = os.getenv("PORT", "8085")
@@ -334,28 +337,6 @@ def train_classifiers():
     with open('DONOTDELETE.json', 'w') as outfile:
         json.dump(perform_statistics, outfile)
 
-def extract_article(url):
-    """Function that takes the url string of a news article and returns the
-    title and text of the article as a Python dictionary. Built on top of
-    Newspaper's article scraping & curation library."""
-    link = newspaper.Article(url)
-    link.download()
-    link.parse()
-
-    article = {}
-    article["title"] = link.title
-    article["text"] = link.text
-
-    return(article)
-
-def create_article(title, text):
-    """Function that produces a Python dictionary containing manually-inputted
-    title and text."""
-    article = {}
-    article["title"] = title
-    article["text"] = text
-    
-    return(article)
 
 def most_predictive_feats(filtered_text, clf, label, n=10):
     """Function returns most predictive words (by differential log_prob) in 
@@ -384,23 +365,27 @@ def most_predictive_feats(filtered_text, clf, label, n=10):
         
     return(word_features)
 
-@app.route('/mnca-classify-article')
+
 def classify_article(article):
     """Function accepts articles in the form of Python dictionaries
     containing the raw text (article['text']) and title (article['title']).
     It returns a Python dictionary containing the classification label
     (label), probability (label_prob), and a dictionary containing the
     word and tonal features that had the greatest impact on classification
-    (interpretation)."""
-    article['filtered_text'] = mnca_train.remove_shortwords(article['text'])
-    article['sentences'] = mnca_train.split_into_sentences(article['text'])
-    article['text_sentiment'] = mnca_train.sent_analysis(article['sentences'])
-    article['title_sentiment'] = mnca_train.sent_analysis(article['title'], uoa="string")
-    article['pct_char_quesexcl_title'] = mnca_train.pct_char_quesexcl(article['title'])
-    article['pct_punc_quesexcl_text'] = mnca_train.pct_punct_quesexcl(article['text'])
-    article['pct_allcaps_title'] = mnca_train.pct_allcaps(article['title'])
+    (interpretation). Model weights stored on google cloud."""
+
+
+    article['filtered_text'] = remove_shortwords(article['text'])
+    article['sentences'] = split_into_sentences(article['text'])
+    article['text_sentiment'] = sent_analysis(article['sentences'])
+    article['title_sentiment'] = sent_analysis(article['title'], uoa="string")
+    article['pct_char_quesexcl_title'] = pct_char_quesexcl(article['title'])
+    article['pct_punc_quesexcl_text'] = pct_punct_quesexcl(article['text'])
+    article['pct_allcaps_title'] = pct_allcaps(article['title'])
     
     project_id = 'genuine-charger-124604'
+    credentials = GoogleCredentials.get_application_default()
+
     client = storage.Client(project=project_id)
     bucket = client.get_bucket('genuine-charger-124604.appspot.com')
     model_weights = bucket.blob('DONOTDELETE.json')#.read_from()
@@ -489,8 +474,35 @@ def classify_article(article):
    
     classification["interpretation"] = interpretation
         
-    return(classification)
+    return(jsonify(classification))
 
+
+@app.route('/mnca-classify-url',method='POST')
+def classify_url():
+    """Function that takes the url string of a news article and returns the
+    classifciation """
+    url = request.args.get('url','')
+    link = newspaper.Article(url)
+    link.download()
+    link.parse()
+
+    article = {}
+    article["title"] = link.title
+    article["text"] = link.text
+
+    return(classify_article(article))
+
+@app.route('/mnca-classify-article-content',method='POST')
+def classify_article_content():
+    """Function that takes the article as a json input with "title" and "text" as input keys and returns the classification"""
+    
+    #article = extract_article(url)
+    article = request.get_json(force=True)
+    #article = {}
+    #article["title"] = title
+    #article["text"] = text
+    
+    return(classify_article(article))
     
     
 if __name__ == '__main__':
