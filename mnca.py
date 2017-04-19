@@ -487,7 +487,8 @@ def classify_url():
     if request.method == 'POST':
 
         #url = request.form.query
-        url = request.form.get('url')      
+        url = request.form['query']
+        #url = request.form.get('url')      
 
         link = newspaper.Article(url)
         link.download()

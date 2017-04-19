@@ -1,2 +1,0 @@
-# makenewscredibleagain
-Google cloud deployment
