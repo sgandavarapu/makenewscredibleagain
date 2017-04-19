@@ -390,6 +390,7 @@ def classify_article(article):
     bucket = client.get_bucket('genuine-charger-124604.appspot.com')
     model_weights_file = bucket.blob('DONOTDELETE.json')#.read_from()
     txt = model_weights_file.download_as_string()
+    print(txt)
     weights = txt.decode('utf-8').strip('\ufeff')
     #model_weights_file.download_to_filename('weights.json')
     #load the weights
@@ -476,7 +477,7 @@ def classify_article(article):
    
     classification["interpretation"] = interpretation
         
-    return(jsonify(classification))
+    return(classification)
 
 
 @app.route('/mnca-classify-url',methods=['POST'])
@@ -485,7 +486,9 @@ def classify_url():
     classifciation """
     if request.method == 'POST':
 
-        url = request.form.query
+        #url = request.form.query
+        url = request.form.get('url')      
+
         link = newspaper.Article(url)
         link.download()
         link.parse()
@@ -494,9 +497,7 @@ def classify_url():
         article["title"] = link.title
         article["text"] = link.text
 
-        result = classify_article(article)
-
-    return render_template("result.html",result = result)
+    return jsonify(classify_article(article))
 
 @app.route('/mnca-classify-article-content',methods=['POST'])
 def classify_article_content():
@@ -507,9 +508,9 @@ def classify_article_content():
     #article = {}
     #article["title"] = title
     #article["text"] = text
-    result = classify_article(article)
+    #result = classify_article(article)
     
-    return render_template("result.html",result = result)
+    return jsonify(classify_article(article))
     
     
 if __name__ == '__main__':
