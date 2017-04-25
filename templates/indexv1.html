@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Make News Credible Again #MNCA</title>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">#MNCA</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#bio">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#approach">Our Story</a>
+                    </li>
+                    <li>
+                        <a href="#apps">Interactive Apps</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container">
+                <h1>Make News Credible Again #MNCA</h1>
+                <h2>Leveraging Machine Learning to Detect Fake News</h2>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr class="featurette-divider">
+
+        <!-- First Featurette -->
+        <div class="featurette" id="bio">
+            <img class="featurette-image img-circle img-responsive pull-right" src="cal.svg.png" height="500px" width="500px">
+            <h2 class="featurette-heading">W210 - Capstone<br>
+                <span class="text-muted">Sashi, Brennan, Talieh, and Umber</span>
+            </h2>
+            <p class="lead">
+            Project completed as a group using open and preexisting secondary data with the goal of combining technical, analytic, interpretive, and social dimensions to design and execute a full data science project with a focus on real-world applications and situations.
+
+            Our Goals:
+
+            Build a model to discern the credibility of an article based on its textual content.
+            Impact the credibility of public discourse and alleviate the strained resources of fact-checkers at a pace scalable with the size of the global internet.
+            Prepare for careers in data science while also doing our part to societally improve the world we live in.
+            </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Second Featurette -->
+        <div class="featurette" id="approach">
+            <!--<img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">-->
+            <h2 class="featurette-heading">Our Approach to
+                <span class="text-muted">Making News Credible Again</span>
+            </h2>
+            <p class="lead"><b>High-level Overview:</b><br>
+            
+            1.) Collect news feeds from a set of different sources for either credible or non-credible sites<br><br>
+            2.) Custom web scrapers running on the server background every night that fetches each article as a text file in html format<br><br>
+            3.) Once the data is collected and stored, ingest it in a pandas dataframe. We first preprocess the texts it using text preprocessing tokenization and then apply different algorithms, including Multinomial Naive Bayes, Support Vector Machine, Logistic Regression & XGBoost classifier to optimize prediction capability<br><br>
+            4.) To also extract interactive insights, preprocess using the tfidf algorithm and then cluster it using 2 different algorithms: K-means and Latent Dirichlet Allocation (LDA), after which we visualize the resulting clusters using two interactive python visualization libraries: Bokeh and pyldavis
+         
+
+           </p>
+
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Third Featurette -->
+        <div class="featurette" id="apps">
+            <!--<img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">-->
+            <h2 class="featurette-heading">Interactive Apps
+                <span class="text-muted"></span>
+            </h2>
+                 <p class="lead">Enter a URL to predict it's "credibility"</p><br>
+        <div style="margin: 0 auto; width:100%; height:1600px;">
+   
+        <object type="text/html" data="https://genuine-charger-124604.appspot.com/mnca-classify-article/mnca-classify-url" style="width:100%; height:9%; margin:1%;">
+        </object><br><br> 
+
+    <form action = "https://genuine-charger-124604.appspot.com/mnca-classify-article/mnca-classify-url" method = "POST">
+         <p>URL <input type = "text" name = "Name" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+    <form action = "https://genuine-charger-124604.appspot.com/mnca-classify-article/mnca-classify-article-content" method = "POST">
+         <p>URL <input type = "text" name = "Name" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+                <p class="lead">Visualize Resulting Clusters from our Corpus</p>
+
+                        <object type="text/html" data="https://public.tableau.com/views/Sentiment_Analysis_0/Dashboard1?:embed=y&:display_count=yes" style="width:100%; height:90%; margin:1%;">
+                        </object>
+
+
+
+   
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
