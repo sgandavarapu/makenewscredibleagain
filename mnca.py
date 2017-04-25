@@ -511,7 +511,7 @@ def classify_article_content():
     #article["text"] = text
     #result = classify_article(article)
     
-    result jsonify(classify_article(article))
+    result = jsonify(classify_article(article))
     return render_template("result.html",result = result)
     
     
