@@ -13,7 +13,7 @@ import newspaper
 import time
 import string
 import re
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from collections import Counter
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 #from vaderSentiment import SentimentIntensityAnalyzer
