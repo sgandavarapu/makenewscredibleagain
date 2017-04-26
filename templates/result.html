@@ -27,22 +27,40 @@
   </head>
 
   <body>
-
     <div id="navigation" style="margin-left: 10%">
       <nav class="navbar navbar-custom" role="navigation">
         <div class="row">
           <div class="site-logo">
-            <a href="https://makenewscredibleagain.github.io/"><img src="https://makenewscredibleagain.github.io/viz/img/logo-dark.png" alt="" /></a>
+            <a href="https://makenewscredibleagain.github.io/#works"><img src="https://makenewscredibleagain.github.io/viz/img/logo-dark.png" alt="" /></a>
           </div>
         </div>
       </nav>
     </div>
 
       <!-- Page Content -->
-    <div class="container" style="background-color: #f9f9f9; margin-left: 10%; margin-right: 10%">
+    <div class="container" style="background-color: #f9f9f9; margin-left: 10%; margin-right: 10%; margin-bottom:7.5%">
       <!-- Page Heading -->
       <div class="row">
-        <h1 class="page-header" style="margin-left: 12.5%">Classification Output:</h1>
+        <h1 class="page-header" style="margin-left: 12.5%">Classification:</h1>
+        <p style="margin-left: 12.5%">
+          <script>
+            // var result = {"label":"Credible", "label_prob": [0.58763231, 0.4265489]};
+            var label = JSON.stringify(result.label);
+            var certainty = JSON.stringify(Math.round(Math.max.apply(null, result.label_prob) * 10000) / 100);
+            var message1 = "Our model has classified this article as <b>";
+            var message2 = "</b> with "
+            var message3 = "% certainty."
+            document.write (message1); // prints the value of the message variable
+            document.write (label);
+            document.write (message2); // prints the value of the message variable
+            document.write (certainty);
+            document.write (message3);
+          </script>
+        </p>
+
+
+      <div class="row">
+        <h1 class="page-header" style="margin-left: 12.5%">Details:</h1>
       </div>
 
       <table class="w3-table w3-striped w3-bordered" border = 1 style="overflow-x:auto; width:75%; margin: auto">
@@ -56,7 +74,7 @@
       <br><br>
       <h2 align="center">Feedback Form:</h2>
 
-      <div class="row" align="center">
+      <div class="row" align="center" style="padding-bottom: 25px">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyy_hJtSsr_83OpXrc0gQPXFDKNlfTAJ4pWZM9UcAXP3-n9w/viewform?embedded=true" width="900" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
       </div>
     </div>
