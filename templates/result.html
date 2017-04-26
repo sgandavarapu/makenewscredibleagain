@@ -45,8 +45,8 @@
         <p style="margin-left: 12.5%">
           <script>
             // var result = {"label":"Credible", "label_prob": [0.58763231, 0.4265489]};
-            var label = JSON.stringify(result.label);
-            var certainty = JSON.stringify(Math.round(Math.max.apply(null, result.label_prob) * 10000) / 100);
+            var label = JSON.stringify({{ result.label }});
+            var certainty = JSON.stringify(Math.round(Math.max.apply(null, {{ result.label_prob }}) * 10000) / 100);
             var message1 = "Our model has classified this article as <b>";
             var message2 = "</b> with "
             var message3 = "% certainty."
