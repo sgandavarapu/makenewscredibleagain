@@ -383,11 +383,11 @@ def classify_article(article):
     article['pct_punc_quesexcl_text'] = pct_punct_quesexcl(article['text'])
     article['pct_allcaps_title'] = pct_allcaps(article['title'])
     
-    project_id = 'genuine-charger-124604'
+    project_id = 'make-news-credible-again'
     credentials = GoogleCredentials.get_application_default()
 
     client = storage.Client(project=project_id)
-    bucket = client.get_bucket('genuine-charger-124604.appspot.com')
+    bucket = client.get_bucket('make-news-credible-again.appspot.com')
     model_weights_file = bucket.blob('DONOTDELETE.json')#.read_from()
     txt = model_weights_file.download_as_string()
     print(txt)
