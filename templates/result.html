@@ -1,292 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
 
-<head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+      <title>MNCA - Classification Result</title>
 
-    <title>MNCA - Classification Results</title>
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom CSS -->
+      <link href="css/1-col-portfolio.css" rel="stylesheet">
+      <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
 
-        <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+  </head>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <body>
 
-</head>
-
-<body>
-
-<div id="navigation">
-        <nav class="navbar navbar-custom" role="navigation">
-                              <div class="container">
-                                    <div class="row">
-                                          <div class="col-md-2">
-                                                   <div class="site-logo">
-                                                            <a href="https://makenewscredibleagain.github.io/"><img src="https://makenewscredibleagain.github.io/viz/img/logo-dark.png" alt="" /></a>
-                                                    </div>
-                                          </div>
-                                          
-
-                                          <div class="col-md-10">
-                         
-                                                      <!-- Brand and toggle get grouped for better mobile display -->
-                                          
-                                          <div class="navbar-header">
-                                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                                                <i class="fa fa-bars"></i>
-                                                </button>
-                                          </div>
-                                                      <!-- Collect the nav links, forms, and other content for toggling -->
-                                                      <!--
-                                                      <div class="collapse navbar-collapse" id="menu">
-                                                            <ul class="nav navbar-nav navbar-right">
-                                                                  <li class="active"><a href="#intro">Home</a></li>
-                                                                  <li><a href="#about">About Us</a></li>
-                                                                   <li><a href="#service">Services</a></li>
-                                                                  <li><a href="#works">Works</a></li>                                                                                 
-                                                                  
-                                                                  <li><a href="#contact">Contact</a></li>
-                                                                  <li class="dropdown nav-toggle">
-                                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropwdown<b class="caret"></b></a>
-                                                                        <ul class="dropdown-menu">
-                                                                              <li><a class="external" href="#">Sub menu</a></li>
-                                                                               <li><a class="external" href="#">Sub menu</a></li>
-                                                                        </ul>
-                                                                  </li>
-                                                            </ul>
-                                                      </div>
-                                                      <!-- /.Navbar-collapse -->
-                             <!--
-                                          </div>
-                                    </div>
-                              </div>
-                              <!-- /.container -->
-                        </nav>
-    </div> 
-
-    <!-- Navigation --><!--
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display --><!--
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling --><!--
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        <!--</div>
-        <!-- /.container --><!--
-    </nav>-->
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Heading -->
+    <div id="navigation" style="margin-left: 10%">
+      <nav class="navbar navbar-custom" role="navigation">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Classification Results
-                   <!-- <small>Secondary Text</small>-->
-                </h1>
-            </div>
+          <div class="site-logo">
+            <a href="https://makenewscredibleagain.github.io/"><img src="https://makenewscredibleagain.github.io/viz/img/logo-dark.png" alt="" /></a>
+          </div>
         </div>
-         <table class="w3-table w3-striped w3-bordered" border = 1 style="overflow-x:auto;">
-         {% for key, value in result.items() %}
-         
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-            
-         {% endfor %}
+      </nav>
+    </div>
+
+      <!-- Page Content -->
+    <div class="container" style="background-color: #f9f9f9; margin-left: 10%; margin-right: 10%">
+      <!-- Page Heading -->
+      <div class="row">
+        <h1 class="page-header" style="margin-left: 12.5%">Classification Output:</h1>
+      </div>
+
+      <table class="w3-table w3-striped w3-bordered" border = 1 style="overflow-x:auto; width:75%; margin: auto">
+        {% for key, value in result.items() %}
+        <tr>
+          <th> {{ key }} </th>
+          <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
       </table>
       <br><br>
-               <h1 class="page-header">Give Feedback on our Classification:
-                   <!-- <small>Secondary Text</small>-->
-                </h1>
+      <h2 align="center">Feedback Form:</h2>
 
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyy_hJtSsr_83OpXrc0gQPXFDKNlfTAJ4pWZM9UcAXP3-n9w/viewform?embedded=true" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-
-      <!--<iframe src="https://docs.google.com/spreadsheets/d/17w9Mr84x54fj7HFrPBjlN2cxQ_QemOLceb_ybJLpxSY/pubhtml?gid=25998625&amp;single=true&amp;widget=true&amp;headers=false" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-      
-        <!-- /.row -->
-
-        <!-- Project One --><!--
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="v1.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Visualization One</h3>
-                <h4>Visualizing Corpus Using Topic Mining</h4>
-                <p>1.) Apply  machine learning techniques to cluster the articles by their similarity <br>
-                2.) Get visual sense of the grouping clusters and the underlying topics (topic mining)<br><br>
-                First preprocess using text preprocessing tokenization and the tfidf algorithm Then cluster it using 2 different algorithms: K-means and Latent Dirichlet Allocation (LDA). Visualize the resulting clusters using two interactive python visualization libraries: Bokeh and pyldavis.</p>
-                <a class="btn btn-primary" href="bokeh.html" target="_blank">Click to Interact <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Two --><!--
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="v2.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Visualization Two</h3>
-                <h4>Sentiment Analysis</h4>
-                <p>Compares the sentiment analysis of Credible and Not-Credible articles of the corpus. The bar graph shows the average percentage of positive, negative and neutral number of words in the articles, the graph shows that Not Credible articles on average have more positive and negative words but less neutral words. <br><br>The line graph shows the distribution of the compound values for Credible and Not-Credible articles, the distribution shows that the percentage of Credible articles with compound around zero is higher than Not-Credible articles.</p>
-                <a class="btn btn-primary" href="sentiment.html" target="_blank" >Click to Interact<span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Three --><!--
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="#" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Visualization Three</h3>
-                <h4>Accuracy Based on User Feedback</h4>
-                <p>Displays accuracy from users submitting articles and giving feedback via a one question quiz</p>
-                <a class="btn btn-primary" href="#">Click to Interact <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row --><!--
-
-        <hr>
-
-        <!-- Project Four --><!--
-        <div class="row">
-
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <!--
-            <div class="col-md-5">
-                <h3>Project Four</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-<!--
-        <hr>
-
-        <!-- Project Five --><!--
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Project Five</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Pagination --><!--
-        <div class="row text-center"><!--
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row --><!--
-
-        <hr>
-
-        <!-- Footer --><!--
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row --><!--
-        </footer>
-
+      <div class="row" align="center">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyy_hJtSsr_83OpXrc0gQPXFDKNlfTAJ4pWZM9UcAXP3-n9w/viewform?embedded=true" width="900" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
     </div>
-    <!-- /.container -->
+    <!--<iframe src="https://docs.google.com/spreadsheets/d/17w9Mr84x54fj7HFrPBjlN2cxQ_QemOLceb_ybJLpxSY/pubhtml?gid=25998625&amp;single=true&amp;widget=true&amp;headers=false" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-</body>
-
+  </body>
 </html>
