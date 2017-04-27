@@ -2,47 +2,79 @@
 <html lang="en">
   <head>
 
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-      <title>MNCA - Classification Result</title>
+    <title>MNCA - Classification Result</title>
 
-      <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-
-      <!-- Custom CSS -->
-      <link href="css/1-col-portfolio.css" rel="stylesheet">
-      <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
-
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	  <link href="css/nivo-lightbox.css" rel="stylesheet" />
+	  <link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	  <link href="css/owl.carousel.css" rel="stylesheet" media="screen" />
+    <link href="css/owl.theme.css" rel="stylesheet" media="screen" />
+	  <link href="css/flexslider.css" rel="stylesheet" />
+	  <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+	  <link href="color/default.css" rel="stylesheet">
 
   </head>
 
   <body>
-    <div id="navigation" style="margin-left: 10%">
+    <!-- Navigation -->
+    <div id="navigation">
       <nav class="navbar navbar-custom" role="navigation">
-        <div class="row">
-          <div class="site-logo">
-            <a href="https://makenewscredibleagain.github.io/#works"><img src="https://makenewscredibleagain.github.io/viz/img/logo-dark.png" alt="" /></a>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 mob-logo">
+              <div class="row">
+                <div class="site-logo">
+                  <a href="https://makenewscredibleagain.github.io/"><img src="img/logo-dark.png" alt="" /></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-10 mob-menu">
+              <div class="row">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                    <i class="fa fa-bars"></i>
+                  </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="menu">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="https://makenewscredibleagain.github.io/#works">Classifier</a></li>
+                    <li><a href="https://makenewscredibleagain.github.io/#service">Approach</a></li>
+                    <li><a href="https://makenewscredibleagain.github.io/#about">About Us</a></li>
+                    <li class="dropdown nav-toggle">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Explore More<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a class="external" href="https://makenewscredibleagain.github.io/viz/index.html">Visualizations</a></li>
+                        <li><a class="external" href="https://medium.com/@bborlaug/building-a-fake-news-classifier-pt-1-3-7a8c3631e19e" target="_blank" >Blog</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
     </div>
+    <!-- /Navigation -->
 
       <!-- Page Content -->
-    <div class="container" style="background-color: #f9f9f9; margin-left: 10%; margin-right: 10%; margin-bottom:7.5%">
+    <div class="container" style="margin-left: 10%; margin-right: 10%; margin-bottom:5%">
       <!-- Page Heading -->
-      <div class="row">
-        <h1 class="page-header" style="margin-left: 12.5%">Classification:</h1>
-        <p style="margin-left: 12.5%">
+      <div class="section-heading text-center">
+        <br>
+        <h2 class="h-bold" align="left" style="margin-left: 7.5%">Classification:</h2>
+        <p style="margin-left: 7.5%">
           <script>
             // var result = {"label":"Credible", "label_prob": [0.58763231, 0.4265489]};
             var label = "{{ result.label }}"
@@ -59,31 +91,49 @@
         </p>
 
 
-      <div class="row">
-        <h1 class="page-header" style="margin-left: 12.5%">Details:</h1>
-      </div>
+        <div class="section-heading text-center">
+          <br><br>
+          <h2 class="h-bold" align="left" style="margin-left: 7.5%">Details:</h2>
+          </div>
 
       <table class="w3-table w3-striped w3-bordered" border = 1 style="overflow-x:auto; width:75%; margin: auto">
         {% for key, value in result.items() %}
         <tr>
-          <th> {{ key }} </th>
-          <td> {{ value }} </td>
+          <th style="text-align: center"> {{ key }} </th>
+          <td style="text-align: center"> {{ value }} </td>
         </tr>
         {% endfor %}
       </table>
       <br><br>
-      <h2 align="center">Feedback Form:</h2>
+      <div class="section-heading text-center">
+        <p></p>
+        <h2 class="h-bold" align="left" style="margin-left: 7.5%">Feedback:</h2>
+      </div>
 
-      <div class="row" align="center" style="padding-bottom: 25px">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyy_hJtSsr_83OpXrc0gQPXFDKNlfTAJ4pWZM9UcAXP3-n9w/viewform?embedded=true" width="900" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      <div class="row" align="center" style="padding-bottom: 10px">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyy_hJtSsr_83OpXrc0gQPXFDKNlfTAJ4pWZM9UcAXP3-n9w/viewform?embedded=true" width="850" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
       </div>
     </div>
-    <!--<iframe src="https://docs.google.com/spreadsheets/d/17w9Mr84x54fj7HFrPBjlN2cxQ_QemOLceb_ybJLpxSY/pubhtml?gid=25998625&amp;single=true&amp;widget=true&amp;headers=false" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Core JavaScript Files -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/slippry.min.js"></script>
+  <script src="js/jquery.flexslider-min.js"></script>
+  <script src="js/morphext.min.js"></script>
+  <script src="js/gmap.js"></script>
+  <script src="js/jquery.mb.YTPlayer.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.scrollTo.js"></script>
+  <script src="js/jquery.appear.js"></script>
+  <script src="js/stellar.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/nivo-lightbox.min.js"></script>
+  <script src="js/jquery.nicescroll.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
   </body>
 </html>
