@@ -45,12 +45,16 @@
         <p style="margin-left: 12.5%">
           <script>
             // var result = {"label":"Credible", "label_prob": [0.58763231, 0.4265489]};
+            var label = "{{ result.label }}"
             var certainty = JSON.stringify(Math.round(Math.max.apply(null, {{ result.label_prob }}) * 10000) / 100);
-            var message1 = "Our model has classified this article as <b>{{ result.label }}</b> with";
-            var message2 = "% certainty."
+            var message1 = "Our model has classified this article as <b>";
+            var message2 = "</b> with "
+            var message3 = "% certainty."
             document.write (message1); // prints the value of the message variable
-            document.write (certainty);
+            document.write (label);
             document.write (message2);
+            document.write (certainty);
+            document.write (message3);
           </script>
         </p>
 
