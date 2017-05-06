@@ -10,9 +10,12 @@ runtime_config:
 health_check:
   enable_health_check: False
 
+manual_scaling:
+  instances: 1
+
 resources:
   cpu: 1
-  memory_gb: 1.0
+  memory_gb: 0.5
 
 
 #[START env]
