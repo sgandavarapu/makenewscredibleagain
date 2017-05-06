@@ -3,6 +3,7 @@ env: flex
 service: default
 entrypoint: python mnca.py
 
+
 runtime_config:
   python_version: 3
 
@@ -10,8 +11,8 @@ health_check:
   enable_health_check: False
 
 resources:
-  cpu: 2
-  memory_gb: 10.0
+  cpu: 1
+  memory_gb: 1.0
 
 
 #[START env]
